@@ -40,19 +40,19 @@ credentials.json (OAuth Client ID file).
 (As instructed use dummy email for testing)
 
 2. Installation
-
-# Clone the repository:
-git clone [YOUR_GITHUB_REPO_LINK]
+Clone the repository:
+```
+git clone https://github.com/anurag2580/Gmail-To-GoogleSheets-Automation.git
 cd gmail-to-sheets
- I have create venv(virtual environment file iside my project folder which consider according to my experience try ) to install module in locally in project folder 
+ ''' I have create venv(virtual environment file iside my project folder which consider according to my experience try ) to install module in locally in project folder '''
 
 # Install Dependencies:
 pip install -r requirements.txt
-
+```
 # Credentials Setup:
 
 Place your credentials.json file inside the credentials/ folder.
-(Note: This file is excluded from git for security).
+(Note: This file is excluded from github repo)
 
 # Instruction --- how to Get credentials.json file 
  1.First go to google cloud console
