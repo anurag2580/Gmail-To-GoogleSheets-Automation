@@ -14,7 +14,6 @@ This Python automation system connects to a Gmail account, identifies specific u
 ---
 
 ## 🏗️ High-Level Architecture Diagram
-[cite_start]*As required by the assignment[cite: 65], here is the system flow:*
 
 ```mermaid
 graph TD
