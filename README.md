@@ -20,10 +20,10 @@ graph TD
     User([User]) -->|Sends Email| Gmail[Gmail Inbox]
     Script[Python Automation Script] -->|1. Poll & Auth| Gmail
     Gmail -->|2. Fetch UNREAD Emails| Script
-    Script -->|3. Parse Content (HTML/Text)| Parser(Email Parser)
+    Script -->|3. Parse Content/HTML/Text| Parser(Email Parser)
     Parser -->|4. Clean Data| Script
     Script -->|5. Append Row| Sheets[Google Sheets API]
-    Script -->|6. Modify Labels (Remove UNREAD)| Gmail
+    Script -->|6. Modify Labels/Remove UNREAD| Gmail
     
     subgraph "State Persistence"
     Gmail
