@@ -28,6 +28,7 @@ graph TD
     subgraph "State Persistence"
     Gmail
     end
+```
 
 # ⚙️ Setup Instructions
 
