@@ -1,7 +1,7 @@
 # Gmail to Google Sheets Automation
 
 **Author:** ANURAG RAY  
-**Project:** Internship Assignment (Jan 2026)  
+**Project:** Internship Assignment
 **Status:** Completed
 
 ---
@@ -41,27 +41,27 @@ credentials.json (OAuth Client ID file).
 
 2. Installation
 
-#Clone the repository:
+# Clone the repository:
 git clone [YOUR_GITHUB_REPO_LINK]
 cd gmail-to-sheets
- --- I have create venv(virtual environment file iside my project folder which consider according to my experience try ) to install module in locally in project folder ---
+ I have create venv(virtual environment file iside my project folder which consider according to my experience try ) to install module in locally in project folder 
 
-#Install Dependencies:
+# Install Dependencies:
 pip install -r requirements.txt
 
-#Credentials Setup:
+# Credentials Setup:
 
 Place your credentials.json file inside the credentials/ folder.
 (Note: This file is excluded from git for security).
 
-*** instruction --- how to Get credentials.json file ***
+# Instruction --- how to Get credentials.json file 
  1.First go to google cloud console
  2.Create project with name
  3.In sidebar Search for API&sevice
  4.Choose the Services you needed
  5.Get the file Rename it as Credentials File
 
-#Configuration:
+# Configuration:
 
 Open src/config.py.
 Update SPREADSHEET_ID with your target Google Sheet ID.
@@ -69,15 +69,16 @@ Update SPREADSHEET_ID with your target Google Sheet ID.
 #Execution 
 
 Run the main script:
-``` python src/main.py 
-    python -m src.main
+``` python src/main.py ```
+or
+```    python -m src.main ```
 
 On the first run, a browser window will open for OAuth authentication.
 
 Grant permissions to allow the script to read emails and write to sheets.
 
-###🧠 Design Decisions & Explanations
-#1. OAuth Flow Used 
+### 🧠 Design Decisions & Explanations
+# 1. OAuth Flow Used 
 
 I utilized the InstalledAppFlow from the google_auth_oauthlib library.
 
@@ -85,7 +86,7 @@ Reasoning: This is the standard secure method for desktop/CLI applications. It e
 
 Token Management: Access and refresh tokens are stored locally in token.json. This allows the script to run subsequently without re-prompting the user for login.
 
-#2. State Persistence & Duplicate Prevention 
+# 2. State Persistence & Duplicate Prevention 
 
 How state is stored: The system relies on Gmail Labels as the "State Store" rather than an external database.
 
@@ -100,7 +101,7 @@ Update State: Immediately after a successful write to Sheets, the script calls t
 
 Why this approach?  This makes the operation idempotent. If the script crashes after processing 3 out of 10 emails, the 3 processed ones are already "Read". When the script restarts, it will only see the remaining 7 "Unread" emails. This guarantees zero duplicates without complex database logic.
 
-###⚠️ Challenges & Solutions 
+### ⚠️ Challenges & Solutions 
 
 Challenge: Handling Multipart Email Formats Emails are rarely just text; they are often complex multipart/alternative structures containing both HTML and Plain Text. Initially, the script would pull raw HTML tags (like <div><br>) into the Google Sheet, making it unreadable.
 
@@ -112,11 +113,14 @@ If not found, it falls back to text/html.
 
 I integrated BeautifulSoup to strip all HTML tags from the content, ensuring only clean, human-readable text is stored.
 
-###📉 Limitations 
+### 📉 Limitations 
 
 Attachment Handling: The system currently lists attachment filenames but does not download or store the actual files due to Google Sheets cell limits.
 
 API Quotas: The application is subject to Google's daily API rate limits (e.g., 25,000 queries/day).
 
 Scope: It currently only scans the primary Inbox, ignoring Spam or nested folders unless configured otherwise.
+
+### 📸 Proof of Execution
+Also Screenshots located in proof/ directory
   
