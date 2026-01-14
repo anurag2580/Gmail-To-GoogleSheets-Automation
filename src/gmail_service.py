@@ -6,7 +6,7 @@ from googleapiclient.discovery import build
 import src.config as config
 
 def get_gmail_service():
-    """Authenticates and returns the Gmail service."""
+    """Authenticating and returning the Gmail service."""
     creds = None
     if os.path.exists('token.json'):
         creds = Credentials.from_authorized_user_file('token.json', config.SCOPES)
@@ -26,12 +26,12 @@ def get_gmail_service():
     return build('gmail', 'v1', credentials=creds)
 
 def fetch_unread_emails(service):
-    """Fetches list of unread emails from Inbox[cite: 31, 49]."""
+    """Fetching list of unread emails from Inbox """
     results = service.users().messages().list(userId='me', labelIds=['INBOX'], q='is:unread').execute()
     return results.get('messages', [])
 
 def mark_as_read(service, msg_id):
-    """Removes UNREAD label to prevent duplicate processing[cite: 32, 52]."""
+    """Removing UNREAD label to prevent duplicate processing"""
     service.users().messages().modify(
         userId='me',
         id=msg_id,

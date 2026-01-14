@@ -15,8 +15,6 @@ def job():
     # Fetch
     messages = fetch_unread_emails(gmail)
 
-    # Logic: You can add the "20 email" rule here if you really want, 
-    # but it's better to process whatever you find immediately.
     if not messages:
         print(" -> No new emails.")
         return
@@ -40,15 +38,16 @@ def job():
             # Append to Sheets
             append_to_sheet(sheets, row)
             
-            # Mark as Read (State Persistence)
+            # Mark as Read
             mark_as_read(gmail, msg_id)
+            print(f" Success: Logged and marked read ")
             print(f"    -> Processed: {data['Subject'][:30]}...")
 
         except Exception as e:
             print(f"    -> Error processing {msg_id}: {e}")
 
 def main():
-    print("--- Gmail Automation Started (Press Ctrl+C to stop) ---")
+    print("--- Gmail Automation Started ---")
     
     while True:
         try:

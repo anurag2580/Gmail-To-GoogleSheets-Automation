@@ -2,7 +2,7 @@ import base64
 from bs4 import BeautifulSoup
 
 def parse_email(service, msg_id):
-    """Extracts Sender, Subject, Date, Content, and Attachment Filenames."""
+    """Extracting Sender, Subject, Date, Content, and Attachment Filenames."""
     msg = service.users().messages().get(userId='me', id=msg_id, format='full').execute()
     payload = msg['payload']
     headers = payload.get('headers', [])
@@ -43,7 +43,7 @@ def parse_email(service, msg_id):
             elif mimeType == 'text/html' and not body_data: # Fallback
                 body_data = part['body'].get('data')
                 
-            # Handle nested multipart (sometimes text is deeper inside)
+            # Handle nested multipart
             if part.get('parts'):
                 for subpart in part.get('parts'):
                     if subpart.get('mimeType') == 'text/plain' and not body_data:
