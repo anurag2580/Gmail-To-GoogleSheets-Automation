@@ -18,7 +18,7 @@ This Python automation system connects to a Gmail account, identifies specific u
 ```mermaid
 graph TD
     User([User]) -->|Sends Email| Gmail[Gmail Inbox]
-    Script[Python Automation Script] -->|1. Poll & Auth (OAuth 2.0)| Gmail
+    Script[Python Automation Script] -->|1. Poll & Auth| Gmail
     Gmail -->|2. Fetch UNREAD Emails| Script
     Script -->|3. Parse Content (HTML/Text)| Parser(Email Parser)
     Parser -->|4. Clean Data| Script
