@@ -103,7 +103,8 @@ Why this approach?  This makes the operation idempotent. If the script crashes a
 
 ### ⚠️ Challenges & Solutions 
 
-Challenge: Handling Multipart Email Formats Emails are rarely just text; they are often complex multipart/alternative structures containing both HTML and Plain Text. Initially, the script would pull raw HTML tags (like <div><br>) into the Google Sheet, making it unreadable.
+Challenge: Handling Multipart Email Formats Emails are rarely just text; they are often complex multipart/
+alternative structures containing both HTML and Plain Text. Initially, the script would pull raw HTML tags (like <div><br>) into the Google Sheet, making it unreadable.
 
 Solution: I implemented a prioritized parsing logic in src/email_parser.py:
 
