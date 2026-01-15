@@ -123,4 +123,10 @@ Scope: It currently only scans the primary Inbox, ignoring Spam or nested folder
 
 ### 📸 Proof of Execution
 Also Screenshots located in proof/ directory
+ 1. inbox_unread.png
+ 2. terminal_output.png
+ 3. sheet_populated.png
+ 4. Authpage1.png
+ 5. Authpage2.png
+ 
   
